@@ -1,0 +1,25 @@
+# Visual Studio / VS Code cache & user files
+.vs/
+**/.vs/
+[Bb]in/
+**/[Bb]in/
+[Oo]bj/
+**/[Oo]bj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+FileContentIndex/
+**/FileContentIndex/
+*.vsidx
+*.db-shm
+*.db-wal
+DoctorAppointment.db
+
+# Build results
+[Dd]ebug/
+**/[Dd]ebug/
+[Rr]elease/
+**/[Rr]elease/
+x64/
+x86/
