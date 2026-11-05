@@ -29,7 +29,6 @@ namespace ClinicManagementSystem.Forms
             await LoadPatientsAsync();
         }
 
-        // ── Task 6: Multithreading / Async Loading ────────────────────────────
         private async Task LoadPatientsAsync()
         {
             SetLoading(true, "Loading patients...");
@@ -68,7 +67,6 @@ namespace ClinicManagementSystem.Forms
             lblCount.Text = $"Total Patients: {list.Count}";
         }
 
-        // ── Search & Filter ───────────────────────────────────────────────────
         private async void txtSearch_TextChanged(object sender, EventArgs e)
         {
             await TriggerSearchAsync();
@@ -110,7 +108,6 @@ namespace ClinicManagementSystem.Forms
             await LoadPatientsAsync();
         }
 
-        // ── Grid Selection & Form Population ──────────────────────────────────
         private void dgvPatients_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvPatients.CurrentRow == null || dgvPatients.CurrentRow.Index < 0)
@@ -139,7 +136,7 @@ namespace ClinicManagementSystem.Forms
             txtNotes.Text = notes == "None" ? "" : notes;
 
             _isEditing = true;
-            lblFormTitle.Text = "✏ Edit Patient Record";
+            lblFormTitle.Text = "Patient Details";
             btnSave.Text = "Update Patient";
             btnDelete.Enabled = true;
             errorProvider.Clear();
@@ -160,7 +157,7 @@ namespace ClinicManagementSystem.Forms
             txtPhone.Clear();
             txtAddress.Clear();
             txtNotes.Clear();
-            lblFormTitle.Text = "➕ Register New Patient";
+            lblFormTitle.Text = "Register New Patient";
             btnSave.Text = "Save Patient";
             btnDelete.Enabled = false;
             errorProvider.Clear();
@@ -168,13 +165,11 @@ namespace ClinicManagementSystem.Forms
             txtName.Focus();
         }
 
-        // ── Validation (Egyptian Mobile Formats & Requirements) ────────────────
         private bool ValidateForm()
         {
             bool isValid = true;
             errorProvider.Clear();
 
-            // Name
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
                 errorProvider.SetError(txtName, "Patient Full Name is required.");
@@ -186,14 +181,12 @@ namespace ClinicManagementSystem.Forms
                 isValid = false;
             }
 
-            // Gender
             if (cmbGender.SelectedIndex < 0)
             {
                 errorProvider.SetError(cmbGender, "Please select a gender.");
                 isValid = false;
             }
 
-            // Date of Birth
             if (dtpDOB.Value.Date >= DateTime.Today)
             {
                 errorProvider.SetError(dtpDOB, "Date of birth must be in the past.");
@@ -205,7 +198,6 @@ namespace ClinicManagementSystem.Forms
                 isValid = false;
             }
 
-            // Phone: Accepts Egyptian 11-digit numbers (010, 011, 012, 015) or standard 10-15 digits
             string phone = txtPhone.Text.Trim().Replace(" ", "").Replace("-", "");
             if (string.IsNullOrWhiteSpace(phone))
             {
@@ -218,7 +210,6 @@ namespace ClinicManagementSystem.Forms
                 isValid = false;
             }
 
-            // Address
             if (string.IsNullOrWhiteSpace(txtAddress.Text))
             {
                 errorProvider.SetError(txtAddress, "Address / City is required (e.g. 6th of October / Giza / Cairo).");
@@ -228,7 +219,6 @@ namespace ClinicManagementSystem.Forms
             return isValid;
         }
 
-        // ── Save (Create / Update) ─────────────────────────────────────────────
         private async void btnSave_Click(object sender, EventArgs e)
         {
             if (!ValidateForm())
@@ -236,7 +226,6 @@ namespace ClinicManagementSystem.Forms
 
             string phone = txtPhone.Text.Trim();
 
-            // Phone uniqueness check
             try
             {
                 bool exists = await Task.Run(() => _dal.PhoneExists(phone, _editingPatientId));
@@ -301,7 +290,6 @@ namespace ClinicManagementSystem.Forms
             }
         }
 
-        // ── Delete ─────────────────────────────────────────────────────────────
         private async void btnDelete_Click(object sender, EventArgs e)
         {
             if (_editingPatientId == 0) return;

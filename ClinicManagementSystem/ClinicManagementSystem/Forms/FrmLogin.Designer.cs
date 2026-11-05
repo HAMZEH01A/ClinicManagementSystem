@@ -32,12 +32,12 @@ namespace ClinicManagementSystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.picLoading)).BeginInit();
             this.SuspendLayout();
 
-            // pnlBackground - Teal modern background
+            // pnlBackground
             this.pnlBackground.BackColor = System.Drawing.Color.FromArgb(22, 160, 133);
             this.pnlBackground.Dock      = System.Windows.Forms.DockStyle.Fill;
             this.pnlBackground.Controls.Add(this.pnlCard);
 
-            // pnlCard - White floating card with extra height to prevent cutoffs
+            // pnlCard
             this.pnlCard.BackColor   = System.Drawing.Color.White;
             this.pnlCard.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.pnlCard.Location    = new System.Drawing.Point(45, 45);
@@ -51,7 +51,7 @@ namespace ClinicManagementSystem.Forms
                 this.lblStatus, this.picLoading, this.lblVersion
             });
 
-            // lblTitle - Project 28 Name: Doctor Appointment System
+            // lblTitle
             this.lblTitle.AutoSize  = false;
             this.lblTitle.Font      = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(22, 160, 133);
@@ -109,13 +109,13 @@ namespace ClinicManagementSystem.Forms
             this.chkShowPassword.TabIndex        = 2;
             this.chkShowPassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged);
 
-            // lblDemoHint - Subtle helper for grader
+            // lblDemoHint
             this.lblDemoHint.AutoSize  = false;
             this.lblDemoHint.Font      = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic);
             this.lblDemoHint.ForeColor = System.Drawing.Color.FromArgb(22, 160, 133);
             this.lblDemoHint.Location  = new System.Drawing.Point(40, 232);
             this.lblDemoHint.Size      = new System.Drawing.Size(300, 18);
-            this.lblDemoHint.Text      = "🔑 Demo credentials: admin / admin123";
+            this.lblDemoHint.Text      = "Default credentials: admin / admin123";
 
             // btnLogin
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(22, 160, 133);
@@ -129,7 +129,7 @@ namespace ClinicManagementSystem.Forms
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.Click    += new System.EventHandler(this.btnLogin_Click);
 
-            // lblStatus - Expanded height & multi-line wrapping so errors never truncate
+            // lblStatus
             this.lblStatus.AutoSize    = false;
             this.lblStatus.Font        = new System.Drawing.Font("Segoe UI", 8.5F);
             this.lblStatus.ForeColor   = System.Drawing.Color.Red;
@@ -144,13 +144,13 @@ namespace ClinicManagementSystem.Forms
             this.picLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLoading.Visible  = false;
 
-            // lblVersion - Corrected course code: CS312 Phase 1
+            // lblVersion
             this.lblVersion.AutoSize  = false;
             this.lblVersion.Font      = new System.Drawing.Font("Segoe UI", 8F);
             this.lblVersion.ForeColor = System.Drawing.Color.DarkGray;
             this.lblVersion.Location  = new System.Drawing.Point(0, 448);
             this.lblVersion.Size      = new System.Drawing.Size(380, 20);
-            this.lblVersion.Text      = "v1.0 - CS312 Phase 1";
+            this.lblVersion.Text      = "v1.0 - CS312";
             this.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 
             // FrmLogin

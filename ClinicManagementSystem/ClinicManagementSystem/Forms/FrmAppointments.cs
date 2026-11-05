@@ -16,7 +16,6 @@ namespace ClinicManagementSystem.Forms
             LoadSampleData();
         }
 
-        // ── Sample Data ───────────────────────────────────────────────────────
         private void LoadSampleData()
         {
             dgvAppointments.Rows.Clear();
@@ -29,7 +28,6 @@ namespace ClinicManagementSystem.Forms
             lblCount.Text = "Total Appointments: 6";
         }
 
-        // ── Filter / Search ───────────────────────────────────────────────────
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             ApplyFilter();
@@ -102,7 +100,6 @@ namespace ClinicManagementSystem.Forms
             LoadSampleData();
         }
 
-        // ── Grid Selection ────────────────────────────────────────────────────
         private void dgvAppointments_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvAppointments.CurrentRow == null || dgvAppointments.CurrentRow.Index < 0)
@@ -110,7 +107,6 @@ namespace ClinicManagementSystem.Forms
 
             DataGridViewRow row = dgvAppointments.CurrentRow;
 
-            // Populate booking panel with selected row
             string patientName = row.Cells["colPatientName"].Value?.ToString() ?? "";
             int pIdx = cmbPatient.FindStringExact(patientName);
             if (pIdx >= 0) cmbPatient.SelectedIndex = pIdx;
@@ -130,15 +126,14 @@ namespace ClinicManagementSystem.Forms
             int stIdx = cmbStatus.FindStringExact(status);
             if (stIdx >= 0) cmbStatus.SelectedIndex = stIdx;
 
-            lblBookingTitle.Text = "✏ Edit Appointment";
+            lblBookingTitle.Text = "Edit Appointment";
             btnConfirmBooking.Text = "Update Appointment";
         }
 
-        // ── Booking Panel Buttons ─────────────────────────────────────────────
         private void btnBookAppointment_Click(object sender, EventArgs e)
         {
             ClearBookingPanel();
-            lblBookingTitle.Text = "📅 Book New Appointment";
+            lblBookingTitle.Text = "Book New Appointment";
             btnConfirmBooking.Text = "Confirm Booking";
             cmbPatient.Focus();
         }
@@ -189,7 +184,7 @@ namespace ClinicManagementSystem.Forms
             cmbTimeSlot.SelectedIndex = 0;
             cmbStatus.SelectedIndex   = 0;
             txtNotes.Clear();
-            lblBookingTitle.Text = "📅 Book / Edit Appointment";
+            lblBookingTitle.Text = "Book / Edit Appointment";
             btnConfirmBooking.Text = "Confirm Booking";
             dgvAppointments.ClearSelection();
         }

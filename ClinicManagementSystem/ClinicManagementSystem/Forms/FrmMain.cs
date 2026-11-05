@@ -19,17 +19,16 @@ namespace ClinicManagementSystem.Forms
             User user = FrmLogin.CurrentUser;
             if (user != null)
             {
-                lblUserBadge.Text = $"👤 {user.Username} ({user.Role})";
+                lblUserBadge.Text = $"{user.Username} ({user.Role})";
             }
             else
             {
-                lblUserBadge.Text = "👤 User (Admin)";
+                lblUserBadge.Text = "User (Admin)";
             }
 
             lblCurrentDate.Text = DateTime.Now.ToString("dddd, MMMM dd, yyyy");
             timerClock.Start();
 
-            // Default view: Dashboard home
             ShowDashboardHome();
         }
 
@@ -38,7 +37,6 @@ namespace ClinicManagementSystem.Forms
             lblClock.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
 
-        // ── Child Form Hosting ────────────────────────────────────────────────
         private void OpenChildForm(Form childForm, Button navBtn)
         {
             if (_activeChildForm != null)
@@ -104,7 +102,6 @@ namespace ClinicManagementSystem.Forms
             }
         }
 
-        // ── Navigation Clicks ─────────────────────────────────────────────────
         private void btnNavDashboard_Click(object sender, EventArgs e)
         {
             ShowDashboardHome();
@@ -120,7 +117,6 @@ namespace ClinicManagementSystem.Forms
             OpenChildForm(new FrmPatients(), btnNavPatients);
         }
 
-        // ── Phase 2 Navigation ────────────────────────────────────────────────
         private void btnNavAppointments_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FrmAppointments(), btnNavAppointments);
@@ -136,7 +132,6 @@ namespace ClinicManagementSystem.Forms
             OpenChildForm(new FrmReports(), btnNavReports);
         }
 
-        // ── Dashboard Quick Shortcuts ─────────────────────────────────────────
         private void btnCardDoctors_Click(object sender, EventArgs e)
         {
             btnNavDoctors_Click(sender, e);
@@ -147,11 +142,10 @@ namespace ClinicManagementSystem.Forms
             btnNavPatients_Click(sender, e);
         }
 
-        // ── Logout & Exit ─────────────────────────────────────────────────────
         private void btnLogout_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show(
-                "Are you sure you want to log out of Doctor Appointment System?",
+                "Are you sure you want to log out?",
                 "Confirm Logout",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);

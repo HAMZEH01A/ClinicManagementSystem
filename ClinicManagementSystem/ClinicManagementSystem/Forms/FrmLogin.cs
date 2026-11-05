@@ -11,7 +11,6 @@ namespace ClinicManagementSystem.Forms
 {
     public partial class FrmLogin : Form
     {
-        // ── Session ───────────────────────────────────────────────────────────
         public static User CurrentUser { get; private set; }
 
         public FrmLogin()
@@ -21,11 +20,9 @@ namespace ClinicManagementSystem.Forms
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-            // Pre-fill demo credentials for seamless zero-friction testing
             txtUsername.Text = "admin";
             txtPassword.Text = "admin123";
 
-            // Test DB initialization on startup (auto-creates DoctorAppointment.db)
             try
             {
                 DatabaseHelper.InitializeDatabase();
@@ -33,7 +30,7 @@ namespace ClinicManagementSystem.Forms
             }
             catch (Exception ex)
             {
-                lblStatus.Text = "Database initialization note: " + ex.Message;
+                lblStatus.Text = "Database initialization error: " + ex.Message;
                 lblStatus.ForeColor = Color.DarkOrange;
             }
 
@@ -70,7 +67,7 @@ namespace ClinicManagementSystem.Forms
                 }
                 else
                 {
-                    lblStatus.Text = "Invalid username or password. Default is: admin / admin123";
+                    lblStatus.Text = "Invalid username or password.";
                     txtPassword.Clear();
                     txtPassword.Focus();
                 }
@@ -89,11 +86,7 @@ namespace ClinicManagementSystem.Forms
         private User AuthenticateUser(string username, string password)
         {
             string hash = DatabaseHelper.HashPassword(password);
-            string hashAdmin123 = DatabaseHelper.HashPassword("admin123");
-            string hashPassword123 = DatabaseHelper.HashPassword("password123");
-            string hashAdmin = DatabaseHelper.HashPassword("admin");
 
-            // Allow admin with admin123, password123, or admin
             bool isSpecialAdmin = username.Equals("admin", StringComparison.OrdinalIgnoreCase) &&
                 (password == "admin123" || password == "password123" || password == "admin");
 

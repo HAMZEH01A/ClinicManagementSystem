@@ -17,7 +17,6 @@ namespace ClinicManagementSystem.Forms
             System.Windows.Forms.DataGridViewCellStyle hdrStyle = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle altStyle = new System.Windows.Forms.DataGridViewCellStyle();
 
-            // ── Declarations ──────────────────────────────────────────────────
             this.pnlTop              = new System.Windows.Forms.Panel();
             this.lblPageTitle        = new System.Windows.Forms.Label();
             this.lblSearchLbl        = new System.Windows.Forms.Label();
@@ -65,7 +64,7 @@ namespace ClinicManagementSystem.Forms
             this.pnlBooking.SuspendLayout();
             this.SuspendLayout();
 
-            // ── pnlTop ────────────────────────────────────────────────────────
+            // pnlTop
             this.pnlTop.BackColor = System.Drawing.Color.White;
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Height = 70;
@@ -81,7 +80,7 @@ namespace ClinicManagementSystem.Forms
             this.lblPageTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.lblPageTitle.ForeColor = System.Drawing.Color.FromArgb(44, 62, 80);
             this.lblPageTitle.Location = new System.Drawing.Point(12, 20);
-            this.lblPageTitle.Text = "📅 Appointments Booking & Cancellation";
+            this.lblPageTitle.Text = "Appointments Booking & Cancellation";
 
             this.lblSearchLbl.AutoSize = true;
             this.lblSearchLbl.Font = new System.Drawing.Font("Segoe UI", 8F);
@@ -139,7 +138,7 @@ namespace ClinicManagementSystem.Forms
             this.btnBookAppointment.ForeColor = System.Drawing.Color.White;
             this.btnBookAppointment.Location = new System.Drawing.Point(832, 24);
             this.btnBookAppointment.Size = new System.Drawing.Size(140, 29);
-            this.btnBookAppointment.Text = "+ Book Appointment";
+            this.btnBookAppointment.Text = "Book Appointment";
             this.btnBookAppointment.FlatAppearance.BorderSize = 0;
             this.btnBookAppointment.Click += new System.EventHandler(this.btnBookAppointment_Click);
 
@@ -149,7 +148,7 @@ namespace ClinicManagementSystem.Forms
             this.btnCancelSelected.ForeColor = System.Drawing.Color.White;
             this.btnCancelSelected.Location = new System.Drawing.Point(978, 24);
             this.btnCancelSelected.Size = new System.Drawing.Size(120, 29);
-            this.btnCancelSelected.Text = "✖ Cancel Selected";
+            this.btnCancelSelected.Text = "Cancel Selected";
             this.btnCancelSelected.FlatAppearance.BorderSize = 0;
             this.btnCancelSelected.Click += new System.EventHandler(this.btnCancelSelected_Click);
 
@@ -159,7 +158,7 @@ namespace ClinicManagementSystem.Forms
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.Location = new System.Drawing.Point(1104, 24);
             this.btnRefresh.Size = new System.Drawing.Size(80, 29);
-            this.btnRefresh.Text = "↻ Refresh";
+            this.btnRefresh.Text = "Refresh";
             this.btnRefresh.FlatAppearance.BorderSize = 0;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
 
@@ -171,7 +170,7 @@ namespace ClinicManagementSystem.Forms
             this.lblCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblCount.Text = "Total Appointments: 0";
 
-            // ── dgvAppointments ───────────────────────────────────────────────
+            // dgvAppointments
             this.dgvAppointments.AllowUserToAddRows = false;
             this.dgvAppointments.AllowUserToDeleteRows = false;
             this.dgvAppointments.ReadOnly = true;
@@ -210,7 +209,7 @@ namespace ClinicManagementSystem.Forms
                 this.colDate, this.colTimeSlot, this.colStatus, this.colFee
             });
 
-            // ── pnlBooking (Right Side Panel) ─────────────────────────────────
+            // pnlBooking (Right Side Panel)
             this.pnlBooking.BackColor = System.Drawing.Color.White;
             this.pnlBooking.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlBooking.Width = 320;
@@ -221,7 +220,7 @@ namespace ClinicManagementSystem.Forms
             this.lblBookingTitle.ForeColor = System.Drawing.Color.FromArgb(22, 160, 133);
             this.lblBookingTitle.Location = new System.Drawing.Point(16, 10);
             this.lblBookingTitle.Size = new System.Drawing.Size(285, 28);
-            this.lblBookingTitle.Text = "📅 Book / Edit Appointment";
+            this.lblBookingTitle.Text = "Book / Edit Appointment";
 
             int y = 46;
 
@@ -310,7 +309,7 @@ namespace ClinicManagementSystem.Forms
             this.btnConfirmBooking.ForeColor = System.Drawing.Color.White;
             this.btnConfirmBooking.Location = new System.Drawing.Point(16, y);
             this.btnConfirmBooking.Size = new System.Drawing.Size(165, 36);
-            this.btnConfirmBooking.Text = "✔ Confirm Booking";
+            this.btnConfirmBooking.Text = "Confirm Booking";
             this.btnConfirmBooking.FlatAppearance.BorderSize = 0;
             this.btnConfirmBooking.Click += new System.EventHandler(this.btnConfirmBooking_Click);
 
@@ -320,7 +319,7 @@ namespace ClinicManagementSystem.Forms
             this.btnCancelBooking.ForeColor = System.Drawing.Color.White;
             this.btnCancelBooking.Location = new System.Drawing.Point(186, y);
             this.btnCancelBooking.Size = new System.Drawing.Size(55, 36);
-            this.btnCancelBooking.Text = "✖";
+            this.btnCancelBooking.Text = "Cancel";
             this.btnCancelBooking.FlatAppearance.BorderSize = 0;
             this.btnCancelBooking.Click += new System.EventHandler(this.btnCancelBooking_Click);
 
@@ -345,7 +344,7 @@ namespace ClinicManagementSystem.Forms
                 this.btnConfirmBooking, this.btnCancelBooking, this.btnClearBooking
             });
 
-            // ── FrmAppointments ───────────────────────────────────────────────
+            // FrmAppointments
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
@@ -365,7 +364,6 @@ namespace ClinicManagementSystem.Forms
             this.ResumeLayout(false);
         }
 
-        // ── Control Declarations ──────────────────────────────────────────────
         private System.Windows.Forms.Panel pnlTop;
         private System.Windows.Forms.Label lblPageTitle;
         private System.Windows.Forms.Label lblSearchLbl;

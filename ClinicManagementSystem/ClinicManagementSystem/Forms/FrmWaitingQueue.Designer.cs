@@ -17,7 +17,6 @@ namespace ClinicManagementSystem.Forms
             System.Windows.Forms.DataGridViewCellStyle hdrStyle = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle altStyle = new System.Windows.Forms.DataGridViewCellStyle();
 
-            // ── Declarations ──────────────────────────────────────────────────
             this.pnlSummaryCards    = new System.Windows.Forms.Panel();
             this.pnlCardWaiting     = new System.Windows.Forms.Panel();
             this.lblWaitingIcon     = new System.Windows.Forms.Label();
@@ -60,7 +59,7 @@ namespace ClinicManagementSystem.Forms
             this.pnlRight.SuspendLayout();
             this.SuspendLayout();
 
-            // ── Summary Cards Panel ───────────────────────────────────────────
+            // Summary Cards Panel
             this.pnlSummaryCards.BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
             this.pnlSummaryCards.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSummaryCards.Height = 95;
@@ -77,10 +76,11 @@ namespace ClinicManagementSystem.Forms
                 this.lblWaitingIcon, this.lblWaitingTitle, this.lblWaitingCount
             });
 
-            this.lblWaitingIcon.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.lblWaitingIcon.Location = new System.Drawing.Point(10, 8);
+            this.lblWaitingIcon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblWaitingIcon.ForeColor = System.Drawing.Color.FromArgb(230, 126, 34);
+            this.lblWaitingIcon.Location = new System.Drawing.Point(10, 15);
             this.lblWaitingIcon.Size = new System.Drawing.Size(45, 40);
-            this.lblWaitingIcon.Text = "⏳";
+            this.lblWaitingIcon.Text = "WAIT";
 
             this.lblWaitingTitle.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.lblWaitingTitle.ForeColor = System.Drawing.Color.Gray;
@@ -102,10 +102,11 @@ namespace ClinicManagementSystem.Forms
                 this.lblConsultIcon, this.lblConsultTitle, this.lblInConsultation
             });
 
-            this.lblConsultIcon.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.lblConsultIcon.Location = new System.Drawing.Point(10, 8);
+            this.lblConsultIcon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblConsultIcon.ForeColor = System.Drawing.Color.FromArgb(22, 160, 133);
+            this.lblConsultIcon.Location = new System.Drawing.Point(10, 15);
             this.lblConsultIcon.Size = new System.Drawing.Size(45, 40);
-            this.lblConsultIcon.Text = "🩺";
+            this.lblConsultIcon.Text = "DOC";
 
             this.lblConsultTitle.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.lblConsultTitle.ForeColor = System.Drawing.Color.Gray;
@@ -117,7 +118,7 @@ namespace ClinicManagementSystem.Forms
             this.lblInConsultation.ForeColor = System.Drawing.Color.FromArgb(22, 160, 133);
             this.lblInConsultation.Location = new System.Drawing.Point(60, 30);
             this.lblInConsultation.Size = new System.Drawing.Size(220, 30);
-            this.lblInConsultation.Text = "🩺  Dr. Tarek El-Gendy - Room 2";
+            this.lblInConsultation.Text = "Dr. Tarek El-Gendy - Room 2";
 
             // Card: Completed Today
             this.pnlCardCompleted.BackColor = System.Drawing.Color.White;
@@ -127,10 +128,11 @@ namespace ClinicManagementSystem.Forms
                 this.lblCompletedIcon, this.lblCompletedTitle, this.lblCompletedCount
             });
 
-            this.lblCompletedIcon.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.lblCompletedIcon.Location = new System.Drawing.Point(10, 8);
+            this.lblCompletedIcon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblCompletedIcon.ForeColor = System.Drawing.Color.FromArgb(39, 174, 96);
+            this.lblCompletedIcon.Location = new System.Drawing.Point(10, 15);
             this.lblCompletedIcon.Size = new System.Drawing.Size(45, 40);
-            this.lblCompletedIcon.Text = "✅";
+            this.lblCompletedIcon.Text = "DONE";
 
             this.lblCompletedTitle.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.lblCompletedTitle.ForeColor = System.Drawing.Color.Gray;
@@ -144,7 +146,7 @@ namespace ClinicManagementSystem.Forms
             this.lblCompletedCount.Size = new System.Drawing.Size(150, 30);
             this.lblCompletedCount.Text = "12 Patients";
 
-            // ── pnlTop (Action Buttons) ───────────────────────────────────────
+            // pnlTop
             this.pnlTop.BackColor = System.Drawing.Color.White;
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Height = 60;
@@ -157,7 +159,7 @@ namespace ClinicManagementSystem.Forms
             this.lblPageTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.lblPageTitle.ForeColor = System.Drawing.Color.FromArgb(44, 62, 80);
             this.lblPageTitle.Location = new System.Drawing.Point(12, 18);
-            this.lblPageTitle.Text = "⏱ Live Waiting Room Queue";
+            this.lblPageTitle.Text = "Live Waiting Room Queue";
 
             this.btnCallNext.BackColor = System.Drawing.Color.FromArgb(22, 160, 133);
             this.btnCallNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -165,7 +167,7 @@ namespace ClinicManagementSystem.Forms
             this.btnCallNext.ForeColor = System.Drawing.Color.White;
             this.btnCallNext.Location = new System.Drawing.Point(310, 15);
             this.btnCallNext.Size = new System.Drawing.Size(140, 30);
-            this.btnCallNext.Text = "📢 Call Next Patient";
+            this.btnCallNext.Text = "Call Next Patient";
             this.btnCallNext.FlatAppearance.BorderSize = 0;
             this.btnCallNext.Click += new System.EventHandler(this.btnCallNext_Click);
 
@@ -175,7 +177,7 @@ namespace ClinicManagementSystem.Forms
             this.btnMarkInRoom.ForeColor = System.Drawing.Color.White;
             this.btnMarkInRoom.Location = new System.Drawing.Point(458, 15);
             this.btnMarkInRoom.Size = new System.Drawing.Size(135, 30);
-            this.btnMarkInRoom.Text = "🚪 Mark In Consultation";
+            this.btnMarkInRoom.Text = "Mark In Consultation";
             this.btnMarkInRoom.FlatAppearance.BorderSize = 0;
             this.btnMarkInRoom.Click += new System.EventHandler(this.btnMarkInRoom_Click);
 
@@ -185,7 +187,7 @@ namespace ClinicManagementSystem.Forms
             this.btnMarkCompleted.ForeColor = System.Drawing.Color.White;
             this.btnMarkCompleted.Location = new System.Drawing.Point(600, 15);
             this.btnMarkCompleted.Size = new System.Drawing.Size(130, 30);
-            this.btnMarkCompleted.Text = "✔ Mark Completed";
+            this.btnMarkCompleted.Text = "Mark Completed";
             this.btnMarkCompleted.FlatAppearance.BorderSize = 0;
             this.btnMarkCompleted.Click += new System.EventHandler(this.btnMarkCompleted_Click);
 
@@ -195,11 +197,11 @@ namespace ClinicManagementSystem.Forms
             this.btnSendNotification.ForeColor = System.Drawing.Color.White;
             this.btnSendNotification.Location = new System.Drawing.Point(737, 15);
             this.btnSendNotification.Size = new System.Drawing.Size(185, 30);
-            this.btnSendNotification.Text = "📡 Send Notification to Doctor";
+            this.btnSendNotification.Text = "Send Notification to Doctor";
             this.btnSendNotification.FlatAppearance.BorderSize = 0;
             this.btnSendNotification.Click += new System.EventHandler(this.btnSendNotification_Click);
 
-            // ── dgvWaitingQueue ───────────────────────────────────────────────
+            // dgvWaitingQueue
             this.dgvWaitingQueue.AllowUserToAddRows = false;
             this.dgvWaitingQueue.AllowUserToDeleteRows = false;
             this.dgvWaitingQueue.ReadOnly = true;
@@ -236,7 +238,7 @@ namespace ClinicManagementSystem.Forms
                 this.colArrivalTime, this.colEstWait, this.colQueueStatus
             });
 
-            // ── Right Panel (GDI+ Ticket Preview) ────────────────────────────
+            // Right Panel
             this.pnlRight.BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
             this.pnlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlRight.Width = 310;
@@ -249,7 +251,7 @@ namespace ClinicManagementSystem.Forms
             this.lblTicketHeader.ForeColor = System.Drawing.Color.FromArgb(44, 62, 80);
             this.lblTicketHeader.Location = new System.Drawing.Point(12, 12);
             this.lblTicketHeader.Size = new System.Drawing.Size(286, 24);
-            this.lblTicketHeader.Text = "🎫 Queue Ticket Preview (GDI+ Visual)";
+            this.lblTicketHeader.Text = "Queue Ticket Preview";
 
             this.pnlTicketPreview.BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
             this.pnlTicketPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -257,7 +259,7 @@ namespace ClinicManagementSystem.Forms
             this.pnlTicketPreview.Size = new System.Drawing.Size(284, 400);
             this.pnlTicketPreview.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTicketPreview_Paint);
 
-            // ── FrmWaitingQueue ───────────────────────────────────────────────
+            // FrmWaitingQueue
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
@@ -281,7 +283,6 @@ namespace ClinicManagementSystem.Forms
             this.ResumeLayout(false);
         }
 
-        // ── Control Declarations ──────────────────────────────────────────────
         private System.Windows.Forms.Panel pnlSummaryCards;
         private System.Windows.Forms.Panel pnlCardWaiting;
         private System.Windows.Forms.Label lblWaitingIcon;

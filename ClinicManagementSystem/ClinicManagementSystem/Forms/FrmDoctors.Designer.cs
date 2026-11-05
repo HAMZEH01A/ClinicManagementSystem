@@ -81,7 +81,7 @@ namespace ClinicManagementSystem.Forms
             this.lblLoadingStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblLoadingStatus.Visible = false;
 
-            // ── pnlTop (Search & Filter Bar) ──────────────────────────────────
+            // pnlTop (Search & Filter Bar)
             this.pnlTop.BackColor = System.Drawing.Color.White;
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Height = 65;
@@ -103,7 +103,7 @@ namespace ClinicManagementSystem.Forms
             this.lblPageTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.lblPageTitle.ForeColor = System.Drawing.Color.FromArgb(44, 62, 80);
             this.lblPageTitle.Location = new System.Drawing.Point(12, 18);
-            this.lblPageTitle.Text = "👨‍⚕️ Doctors Directory";
+            this.lblPageTitle.Text = "Doctors Directory";
 
             // lblSearchLabel
             this.lblSearchLabel.AutoSize = true;
@@ -151,7 +151,7 @@ namespace ClinicManagementSystem.Forms
             this.btnNew.ForeColor = System.Drawing.Color.White;
             this.btnNew.Location = new System.Drawing.Point(650, 24);
             this.btnNew.Size = new System.Drawing.Size(110, 29);
-            this.btnNew.Text = "+ Add Doctor";
+            this.btnNew.Text = "Add Doctor";
             this.btnNew.FlatAppearance.BorderSize = 0;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
 
@@ -162,7 +162,7 @@ namespace ClinicManagementSystem.Forms
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.Location = new System.Drawing.Point(768, 24);
             this.btnRefresh.Size = new System.Drawing.Size(80, 29);
-            this.btnRefresh.Text = "↻ Refresh";
+            this.btnRefresh.Text = "Refresh";
             this.btnRefresh.FlatAppearance.BorderSize = 0;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
 
@@ -175,7 +175,7 @@ namespace ClinicManagementSystem.Forms
             this.lblCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblCount.Text = "Total Doctors: 0";
 
-            // ── dgvDoctors ────────────────────────────────────────────────────
+            // dgvDoctors
             this.dgvDoctors.AllowUserToAddRows = false;
             this.dgvDoctors.AllowUserToDeleteRows = false;
             this.dgvDoctors.ReadOnly = true;
@@ -234,7 +234,7 @@ namespace ClinicManagementSystem.Forms
                 this.colID, this.colName, this.colSpecialty, this.colPhone, this.colEmail, this.colDays, this.colFee
             });
 
-            // ── pnlForm (CRUD Side Editor) ────────────────────────────────────
+            // pnlForm (CRUD Side Editor)
             this.pnlForm.BackColor = System.Drawing.Color.White;
             this.pnlForm.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlForm.Width = 330;
@@ -246,9 +246,8 @@ namespace ClinicManagementSystem.Forms
             this.lblFormTitle.ForeColor = System.Drawing.Color.FromArgb(22, 160, 133);
             this.lblFormTitle.Location = new System.Drawing.Point(18, 12);
             this.lblFormTitle.Size = new System.Drawing.Size(290, 28);
-            this.lblFormTitle.Text = "➕ Add New Doctor";
+            this.lblFormTitle.Text = "Add New Doctor";
 
-            // Helper macro for form labels and fields
             int y = 46;
 
             // Name
@@ -304,7 +303,7 @@ namespace ClinicManagementSystem.Forms
             y += 34;
 
             // Working Days
-            this.lblWorkDays.Text = "Working Days * (e.g. Sun,Tue,Thu)";
+            this.lblWorkDays.Text = "Working Days * (e.g. Sun, Tue, Thu)";
             this.lblWorkDays.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             this.lblWorkDays.ForeColor = System.Drawing.Color.FromArgb(70, 70, 70);
             this.lblWorkDays.Location = new System.Drawing.Point(18, y);
@@ -374,7 +373,7 @@ namespace ClinicManagementSystem.Forms
                 this.btnSave, this.btnDelete, this.btnCancel
             });
 
-            // ── FrmDoctors ────────────────────────────────────────────────────
+            // FrmDoctors
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 580);

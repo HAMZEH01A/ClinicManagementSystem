@@ -17,7 +17,6 @@ namespace ClinicManagementSystem.Forms
             System.Windows.Forms.DataGridViewCellStyle hdrStyle = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle altStyle = new System.Windows.Forms.DataGridViewCellStyle();
 
-            // ── Declarations ──────────────────────────────────────────────────
             this.pnlTop             = new System.Windows.Forms.Panel();
             this.lblPageTitle       = new System.Windows.Forms.Label();
             this.lblFromLbl         = new System.Windows.Forms.Label();
@@ -67,7 +66,7 @@ namespace ClinicManagementSystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
             this.SuspendLayout();
 
-            // ── pnlTop ────────────────────────────────────────────────────────
+            // pnlTop
             this.pnlTop.BackColor = System.Drawing.Color.White;
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Height = 70;
@@ -81,7 +80,7 @@ namespace ClinicManagementSystem.Forms
             this.lblPageTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.lblPageTitle.ForeColor = System.Drawing.Color.FromArgb(44, 62, 80);
             this.lblPageTitle.Location = new System.Drawing.Point(12, 20);
-            this.lblPageTitle.Text = "📈 Reports & Clinic Statistics";
+            this.lblPageTitle.Text = "Reports & Clinic Statistics";
 
             this.lblFromLbl.AutoSize = true;
             this.lblFromLbl.Font = new System.Drawing.Font("Segoe UI", 8F);
@@ -128,7 +127,7 @@ namespace ClinicManagementSystem.Forms
             this.btnGenerateReport.ForeColor = System.Drawing.Color.White;
             this.btnGenerateReport.Location = new System.Drawing.Point(735, 24);
             this.btnGenerateReport.Size = new System.Drawing.Size(140, 29);
-            this.btnGenerateReport.Text = "📊 Generate Report";
+            this.btnGenerateReport.Text = "Generate Report";
             this.btnGenerateReport.FlatAppearance.BorderSize = 0;
             this.btnGenerateReport.Click += new System.EventHandler(this.btnGenerateReport_Click);
 
@@ -138,11 +137,11 @@ namespace ClinicManagementSystem.Forms
             this.btnExport.ForeColor = System.Drawing.Color.White;
             this.btnExport.Location = new System.Drawing.Point(882, 24);
             this.btnExport.Size = new System.Drawing.Size(145, 29);
-            this.btnExport.Text = "📄 Export / Print Summary";
+            this.btnExport.Text = "Export / Print Summary";
             this.btnExport.FlatAppearance.BorderSize = 0;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
 
-            // ── KPI Cards Row ─────────────────────────────────────────────────
+            // KPI Cards Row
             this.pnlKPICards.BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
             this.pnlKPICards.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlKPICards.Height = 90;
@@ -151,7 +150,6 @@ namespace ClinicManagementSystem.Forms
                 this.pnlKpiAppt, this.pnlKpiRevenue, this.pnlKpiSpec, this.pnlKpiAttend
             });
 
-            // Helper: build one KPI card
             System.Action<System.Windows.Forms.Panel, System.Windows.Forms.Label, System.Windows.Forms.Label, System.Windows.Forms.Label,
                           string, string, string, System.Drawing.Color, int> buildCard =
             (panel, iconLbl, titleLbl, valLbl, icon, title, val, valColor, xPos) =>
@@ -160,8 +158,9 @@ namespace ClinicManagementSystem.Forms
                 panel.Location = new System.Drawing.Point(xPos, 10);
                 panel.Size = new System.Drawing.Size(220, 68);
 
-                iconLbl.Font = new System.Drawing.Font("Segoe UI", 20F);
-                iconLbl.Location = new System.Drawing.Point(10, 8);
+                iconLbl.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+                iconLbl.ForeColor = valColor;
+                iconLbl.Location = new System.Drawing.Point(10, 15);
                 iconLbl.Size = new System.Drawing.Size(45, 40);
                 iconLbl.Text = icon;
 
@@ -181,15 +180,15 @@ namespace ClinicManagementSystem.Forms
             };
 
             buildCard(this.pnlKpiAppt,     this.lblKpiApptIcon,  this.lblKpiApptTitle,  this.lblKpiApptValue,
-                      "📅", "TOTAL APPTS (THIS MONTH)", "148",         System.Drawing.Color.FromArgb(22, 160, 133),  16);
+                      "APP", "TOTAL APPTS (THIS MONTH)", "148",         System.Drawing.Color.FromArgb(22, 160, 133),  16);
             buildCard(this.pnlKpiRevenue,  this.lblKpiRevIcon,   this.lblKpiRevTitle,   this.lblKpiRevenueValue,
-                      "💰", "TOTAL CLINIC REVENUE",    "62,500 EGP",  System.Drawing.Color.FromArgb(39, 174, 96),   252);
+                      "REV", "TOTAL CLINIC REVENUE",    "62,500 EGP",  System.Drawing.Color.FromArgb(39, 174, 96),   252);
             buildCard(this.pnlKpiSpec,     this.lblKpiSpecIcon,  this.lblKpiSpecTitle,  this.lblKpiSpecValue,
-                      "🏆", "MOST VISITED SPECIALTY",  "Cardiology",  System.Drawing.Color.FromArgb(142, 68, 173),  488);
+                      "TOP", "MOST VISITED SPECIALTY",  "Cardiology",  System.Drawing.Color.FromArgb(142, 68, 173),  488);
             buildCard(this.pnlKpiAttend,   this.lblKpiAttendIcon, this.lblKpiAttendTitle, this.lblKpiAttendValue,
-                      "📊", "ATTENDANCE RATE",         "89%",         System.Drawing.Color.FromArgb(41, 128, 185),  724);
+                      "ATT", "ATTENDANCE RATE",         "89%",         System.Drawing.Color.FromArgb(41, 128, 185),  724);
 
-            // ── Content Panel (chart + grid side by side) ─────────────────────
+            // Content Panel
             this.pnlContent.BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContent.Padding = new System.Windows.Forms.Padding(12, 8, 12, 8);
@@ -243,7 +242,7 @@ namespace ClinicManagementSystem.Forms
                 this.colRptDoctor, this.colRptSpecialty, this.colRptAppts, this.colRptRevenue
             });
 
-            // ── FrmReports ────────────────────────────────────────────────────
+            // FrmReports
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
@@ -267,7 +266,6 @@ namespace ClinicManagementSystem.Forms
             this.ResumeLayout(false);
         }
 
-        // ── Control Declarations ──────────────────────────────────────────────
         private System.Windows.Forms.Panel pnlTop;
         private System.Windows.Forms.Label lblPageTitle;
         private System.Windows.Forms.Label lblFromLbl;

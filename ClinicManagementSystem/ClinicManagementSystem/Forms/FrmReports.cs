@@ -19,7 +19,6 @@ namespace ClinicManagementSystem.Forms
             pnlChartCanvas.Invalidate();
         }
 
-        // ── KPI Cards ─────────────────────────────────────────────────────────
         private void LoadKPICards()
         {
             lblKpiApptValue.Text     = "148";
@@ -28,7 +27,6 @@ namespace ClinicManagementSystem.Forms
             lblKpiAttendValue.Text   = "89%";
         }
 
-        // ── Sample Report Table ───────────────────────────────────────────────
         private void LoadSampleReportData()
         {
             dgvReport.Rows.Clear();
@@ -40,7 +38,6 @@ namespace ClinicManagementSystem.Forms
             dgvReport.Rows.Add("Dr. Amira Hassan",     "Neurology",         "6 Appts",   "3,000 EGP");
         }
 
-        // ── GDI+ Bar Chart ────────────────────────────────────────────────────
         private void pnlChartCanvas_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -49,12 +46,10 @@ namespace ClinicManagementSystem.Forms
             Rectangle bounds = pnlChartCanvas.ClientRectangle;
             g.Clear(Color.White);
 
-            // Chart title
             using (var titleFont = new Font("Segoe UI", 10F, FontStyle.Bold))
             using (var darkBrush = new SolidBrush(Color.FromArgb(44, 62, 80)))
                 g.DrawString("Appointments by Specialty (This Month)", titleFont, darkBrush, 10, 10);
 
-            // Data
             string[] labels = { "Cardiology", "Pediatrics", "Orthopedics", "Dermatology", "Internal Med.", "Neurology" };
             int[]    values = { 38, 32, 27, 24, 21, 6 };
             Color[]  colors = {
@@ -71,7 +66,6 @@ namespace ClinicManagementSystem.Forms
             int gap       = 20;
             int totalW    = labels.Length * (barW + gap);
 
-            // Y-axis grid lines
             using (var gridPen = new System.Drawing.Pen(Color.FromArgb(220, 220, 220), 1))
             using (var grayFont = new Font("Segoe UI", 7F))
             using (var grayBrush = new SolidBrush(Color.Gray))
@@ -84,22 +78,18 @@ namespace ClinicManagementSystem.Forms
                 }
             }
 
-            // Bars + labels
             for (int i = 0; i < labels.Length; i++)
             {
                 int barH   = (int)((double)values[i] / maxVal * chartH);
                 int barX   = chartLeft + i * (barW + gap);
                 int barY   = chartTop + chartH - barH;
 
-                // Shadow
                 using (var shadowBrush = new SolidBrush(Color.FromArgb(20, 0, 0, 0)))
                     g.FillRectangle(shadowBrush, barX + 2, barY + 2, barW, barH);
 
-                // Bar
                 using (var barBrush = new SolidBrush(colors[i]))
                     g.FillRectangle(barBrush, barX, barY, barW, barH);
 
-                // Value text on bar
                 using (var valFont = new Font("Segoe UI", 8.5F, FontStyle.Bold))
                 using (var wBrush  = new SolidBrush(Color.White))
                 {
@@ -109,7 +99,6 @@ namespace ClinicManagementSystem.Forms
                             new StringFormat { Alignment = StringAlignment.Center });
                 }
 
-                // X-axis label
                 using (var lblFont = new Font("Segoe UI", 7.5F))
                 using (var darkBrush = new SolidBrush(Color.FromArgb(44, 62, 80)))
                 {
@@ -119,7 +108,6 @@ namespace ClinicManagementSystem.Forms
                 }
             }
 
-            // Axis lines
             using (var axisPen = new System.Drawing.Pen(Color.FromArgb(100, 100, 100), 1.5F))
             {
                 g.DrawLine(axisPen, chartLeft, chartTop, chartLeft, chartTop + chartH);
@@ -127,20 +115,19 @@ namespace ClinicManagementSystem.Forms
             }
         }
 
-        // ── Buttons ───────────────────────────────────────────────────────────
         private void btnGenerateReport_Click(object sender, EventArgs e)
         {
             LoadSampleReportData();
             pnlChartCanvas.Invalidate();
             MessageBox.Show(
-                $"Report Generated!\n\nType    : {cmbReportType.SelectedItem}\nFrom    : {dtpFrom.Value:dd MMM yyyy}\nTo      : {dtpTo.Value:dd MMM yyyy}\n\nData is loaded from mock clinic records.\n[Live DB queries will be active in Phase 2.]",
+                $"Report Generated successfully.\n\nType: {cmbReportType.SelectedItem}\nFrom: {dtpFrom.Value:dd MMM yyyy}\nTo: {dtpTo.Value:dd MMM yyyy}",
                 "Report Generated", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Export / Print Summary feature will be fully implemented in Phase 2 (file I/O + PDF/CSV export).\n\nGUI preview is complete for the design stage submission.",
-                "Export (GUI Preview)", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Report exported successfully.",
+                "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

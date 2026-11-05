@@ -24,7 +24,7 @@ namespace ClinicManagementSystem.Forms
             this.btnNavDashboard = new System.Windows.Forms.Button();
             this.btnNavDoctors = new System.Windows.Forms.Button();
             this.btnNavPatients = new System.Windows.Forms.Button();
-            this.lblNavSectionPhase2 = new System.Windows.Forms.Label();
+            this.lblNavSectionModules = new System.Windows.Forms.Label();
             this.btnNavAppointments = new System.Windows.Forms.Button();
             this.btnNavQueue = new System.Windows.Forms.Button();
             this.btnNavReports = new System.Windows.Forms.Button();
@@ -48,13 +48,9 @@ namespace ClinicManagementSystem.Forms
             this.lblCardPatTitle = new System.Windows.Forms.Label();
             this.lblCardPatDesc = new System.Windows.Forms.Label();
             this.btnCardPatients = new System.Windows.Forms.Button();
-            this.pnlCardPhase2Info = new System.Windows.Forms.Panel();
-            this.lblPhase2CardTitle = new System.Windows.Forms.Label();
-            this.lblPhase2CardDesc = new System.Windows.Forms.Label();
-            this.pnlPhase2Notice = new System.Windows.Forms.Panel();
-            this.lblPhase2NoticeIcon = new System.Windows.Forms.Label();
-            this.lblPhase2Title = new System.Windows.Forms.Label();
-            this.lblPhase2Desc = new System.Windows.Forms.Label();
+            this.pnlCardInfo = new System.Windows.Forms.Panel();
+            this.lblCardInfoTitle = new System.Windows.Forms.Label();
+            this.lblCardInfoDesc = new System.Windows.Forms.Label();
             this.timerClock = new System.Windows.Forms.Timer(this.components);
 
             this.pnlSidebar.SuspendLayout();
@@ -63,11 +59,10 @@ namespace ClinicManagementSystem.Forms
             this.pnlDashboardHome.SuspendLayout();
             this.pnlCardDoctors.SuspendLayout();
             this.pnlCardPatients.SuspendLayout();
-            this.pnlCardPhase2Info.SuspendLayout();
-            this.pnlPhase2Notice.SuspendLayout();
+            this.pnlCardInfo.SuspendLayout();
             this.SuspendLayout();
 
-            // ── Sidebar Panel ─────────────────────────────────────────────────
+            // Sidebar Panel
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(44, 62, 80);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Width = 230;
@@ -79,7 +74,7 @@ namespace ClinicManagementSystem.Forms
                 this.btnNavDashboard,
                 this.btnNavDoctors,
                 this.btnNavPatients,
-                this.lblNavSectionPhase2,
+                this.lblNavSectionModules,
                 this.btnNavAppointments,
                 this.btnNavQueue,
                 this.btnNavReports,
@@ -92,14 +87,14 @@ namespace ClinicManagementSystem.Forms
             this.lblSidebarBrand.Location = new System.Drawing.Point(0, 16);
             this.lblSidebarBrand.Size = new System.Drawing.Size(230, 28);
             this.lblSidebarBrand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblSidebarBrand.Text = "🏥 Doctor Appointments";
+            this.lblSidebarBrand.Text = "Doctor Appointments";
 
             this.lblSidebarBrandSub.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblSidebarBrandSub.ForeColor = System.Drawing.Color.FromArgb(189, 195, 199);
             this.lblSidebarBrandSub.Location = new System.Drawing.Point(0, 44);
             this.lblSidebarBrandSub.Size = new System.Drawing.Size(230, 16);
             this.lblSidebarBrandSub.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblSidebarBrandSub.Text = "Doctor Appointment System v1.0";
+            this.lblSidebarBrandSub.Text = "Clinic Management System v1.0";
 
             this.pnlBrandDivider.BackColor = System.Drawing.Color.FromArgb(52, 73, 94);
             this.pnlBrandDivider.Location = new System.Drawing.Point(18, 68);
@@ -107,21 +102,21 @@ namespace ClinicManagementSystem.Forms
 
             int btnY = 82;
 
-            // Section 1 Header: Core Modules
+            // Section 1 Header
             this.lblNavSectionCore.Font = new System.Drawing.Font("Segoe UI", 7.5F, System.Drawing.FontStyle.Bold);
             this.lblNavSectionCore.ForeColor = System.Drawing.Color.FromArgb(149, 165, 166);
             this.lblNavSectionCore.Location = new System.Drawing.Point(18, btnY);
             this.lblNavSectionCore.Size = new System.Drawing.Size(194, 16);
-            this.lblNavSectionCore.Text = "PHASE 1 - CORE MODULES";
+            this.lblNavSectionCore.Text = "MAIN MODULES";
             btnY += 20;
 
-            System.Action<System.Windows.Forms.Button, string, int, bool> setupNav = (btn, text, yPos, isP2) => {
+            System.Action<System.Windows.Forms.Button, string, int> setupNav = (btn, text, yPos) => {
                 btn.BackColor = System.Drawing.Color.FromArgb(44, 62, 80);
                 btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                 btn.FlatAppearance.BorderSize = 0;
                 btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(52, 73, 94);
                 btn.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-                btn.ForeColor = isP2 ? System.Drawing.Color.FromArgb(189, 195, 199) : System.Drawing.Color.White;
+                btn.ForeColor = System.Drawing.Color.White;
                 btn.Location = new System.Drawing.Point(0, yPos);
                 btn.Size = new System.Drawing.Size(230, 42);
                 btn.Text = text;
@@ -129,35 +124,35 @@ namespace ClinicManagementSystem.Forms
                 btn.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             };
 
-            setupNav(this.btnNavDashboard, "📊  Dashboard Overview", btnY, false);
+            setupNav(this.btnNavDashboard, "Dashboard", btnY);
             this.btnNavDashboard.Click += new System.EventHandler(this.btnNavDashboard_Click);
             btnY += 44;
 
-            setupNav(this.btnNavDoctors, "👨‍⚕️  Doctors Directory", btnY, false);
+            setupNav(this.btnNavDoctors, "Doctors", btnY);
             this.btnNavDoctors.Click += new System.EventHandler(this.btnNavDoctors_Click);
             btnY += 44;
 
-            setupNav(this.btnNavPatients, "🧑  Patients Registry", btnY, false);
+            setupNav(this.btnNavPatients, "Patients Registry", btnY);
             this.btnNavPatients.Click += new System.EventHandler(this.btnNavPatients_Click);
             btnY += 56;
 
-            // Section 2 Header: Phase 2 Placeholders
-            this.lblNavSectionPhase2.Font = new System.Drawing.Font("Segoe UI", 7.5F, System.Drawing.FontStyle.Bold);
-            this.lblNavSectionPhase2.ForeColor = System.Drawing.Color.FromArgb(149, 165, 166);
-            this.lblNavSectionPhase2.Location = new System.Drawing.Point(18, btnY);
-            this.lblNavSectionPhase2.Size = new System.Drawing.Size(194, 16);
-            this.lblNavSectionPhase2.Text = "PHASE 2 - GUI DESIGN";
+            // Section 2 Header
+            this.lblNavSectionModules.Font = new System.Drawing.Font("Segoe UI", 7.5F, System.Drawing.FontStyle.Bold);
+            this.lblNavSectionModules.ForeColor = System.Drawing.Color.FromArgb(149, 165, 166);
+            this.lblNavSectionModules.Location = new System.Drawing.Point(18, btnY);
+            this.lblNavSectionModules.Size = new System.Drawing.Size(194, 16);
+            this.lblNavSectionModules.Text = "CLINIC OPERATIONS";
             btnY += 20;
 
-            setupNav(this.btnNavAppointments, "📅  Appointments", btnY, false);
+            setupNav(this.btnNavAppointments, "Appointments", btnY);
             this.btnNavAppointments.Click += new System.EventHandler(this.btnNavAppointments_Click);
             btnY += 44;
 
-            setupNav(this.btnNavQueue, "⏱  Waiting Queue", btnY, false);
+            setupNav(this.btnNavQueue, "Waiting Queue", btnY);
             this.btnNavQueue.Click += new System.EventHandler(this.btnNavQueue_Click);
             btnY += 44;
 
-            setupNav(this.btnNavReports, "📈  Reports & Stats", btnY, false);
+            setupNav(this.btnNavReports, "Reports & Statistics", btnY);
             this.btnNavReports.Click += new System.EventHandler(this.btnNavReports_Click);
 
             // Logout Button
@@ -169,10 +164,10 @@ namespace ClinicManagementSystem.Forms
             this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.Location = new System.Drawing.Point(18, 590);
             this.btnLogout.Size = new System.Drawing.Size(194, 38);
-            this.btnLogout.Text = "🚪  Log Out";
+            this.btnLogout.Text = "Log Out";
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
 
-            // ── Header Panel ──────────────────────────────────────────────────
+            // Header Panel
             this.pnlHeader.BackColor = System.Drawing.Color.White;
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Height = 55;
@@ -188,7 +183,7 @@ namespace ClinicManagementSystem.Forms
             this.lblHeaderClinic.Font = new System.Drawing.Font("Segoe UI", 11.5F, System.Drawing.FontStyle.Bold);
             this.lblHeaderClinic.ForeColor = System.Drawing.Color.FromArgb(44, 62, 80);
             this.lblHeaderClinic.Location = new System.Drawing.Point(18, 16);
-            this.lblHeaderClinic.Text = "CS312 - Doctor Appointment System";
+            this.lblHeaderClinic.Text = "Doctor Appointment System";
 
             this.lblClock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblClock.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
@@ -212,12 +207,12 @@ namespace ClinicManagementSystem.Forms
             this.lblUserBadge.Size = new System.Drawing.Size(180, 30);
             this.lblUserBadge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 
-            // ── Main Content Container ────────────────────────────────────────
+            // Main Content Container
             this.pnlMainContainer.BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
             this.pnlMainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMainContainer.Controls.Add(this.pnlDashboardHome);
 
-            // ── Dashboard Home Panel ──────────────────────────────────────────
+            // Dashboard Home Panel
             this.pnlDashboardHome.BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
             this.pnlDashboardHome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDashboardHome.Padding = new System.Windows.Forms.Padding(30, 25, 30, 25);
@@ -226,7 +221,7 @@ namespace ClinicManagementSystem.Forms
                 this.lblDashSubGreeting,
                 this.pnlCardDoctors,
                 this.pnlCardPatients,
-                this.pnlCardPhase2Info
+                this.pnlCardInfo
             });
 
             this.lblDashGreeting.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
@@ -239,9 +234,9 @@ namespace ClinicManagementSystem.Forms
             this.lblDashSubGreeting.ForeColor = System.Drawing.Color.FromArgb(127, 140, 141);
             this.lblDashSubGreeting.Location = new System.Drawing.Point(32, 63);
             this.lblDashSubGreeting.Size = new System.Drawing.Size(700, 24);
-            this.lblDashSubGreeting.Text = "All GUI screens are fully designed: Doctors, Patients, Appointments, Waiting Queue, and Reports modules are ready.";
+            this.lblDashSubGreeting.Text = "Overview of today's clinic activity and scheduled appointments.";
 
-            // Card 1: Doctors Shortcut
+            // Card 1: Doctors
             this.pnlCardDoctors.BackColor = System.Drawing.Color.White;
             this.pnlCardDoctors.Location = new System.Drawing.Point(34, 105);
             this.pnlCardDoctors.Size = new System.Drawing.Size(300, 180);
@@ -255,7 +250,7 @@ namespace ClinicManagementSystem.Forms
             this.lblCardDocIcon.Font = new System.Drawing.Font("Segoe UI", 26F);
             this.lblCardDocIcon.Location = new System.Drawing.Point(16, 12);
             this.lblCardDocIcon.Size = new System.Drawing.Size(55, 50);
-            this.lblCardDocIcon.Text = "👨‍⚕️";
+            this.lblCardDocIcon.Text = "DR";
 
             this.lblCardDocTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.lblCardDocTitle.ForeColor = System.Drawing.Color.FromArgb(44, 62, 80);
@@ -276,10 +271,10 @@ namespace ClinicManagementSystem.Forms
             this.btnCardDoctors.ForeColor = System.Drawing.Color.White;
             this.btnCardDoctors.Location = new System.Drawing.Point(20, 126);
             this.btnCardDoctors.Size = new System.Drawing.Size(260, 34);
-            this.btnCardDoctors.Text = "Open Doctors Management →";
+            this.btnCardDoctors.Text = "Open Doctors Management";
             this.btnCardDoctors.Click += new System.EventHandler(this.btnCardDoctors_Click);
 
-            // Card 2: Patients Shortcut
+            // Card 2: Patients
             this.pnlCardPatients.BackColor = System.Drawing.Color.White;
             this.pnlCardPatients.Location = new System.Drawing.Point(360, 105);
             this.pnlCardPatients.Size = new System.Drawing.Size(300, 180);
@@ -293,7 +288,7 @@ namespace ClinicManagementSystem.Forms
             this.lblCardPatIcon.Font = new System.Drawing.Font("Segoe UI", 26F);
             this.lblCardPatIcon.Location = new System.Drawing.Point(16, 12);
             this.lblCardPatIcon.Size = new System.Drawing.Size(55, 50);
-            this.lblCardPatIcon.Text = "🧑";
+            this.lblCardPatIcon.Text = "PT";
 
             this.lblCardPatTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.lblCardPatTitle.ForeColor = System.Drawing.Color.FromArgb(44, 62, 80);
@@ -314,57 +309,35 @@ namespace ClinicManagementSystem.Forms
             this.btnCardPatients.ForeColor = System.Drawing.Color.White;
             this.btnCardPatients.Location = new System.Drawing.Point(20, 126);
             this.btnCardPatients.Size = new System.Drawing.Size(260, 34);
-            this.btnCardPatients.Text = "Open Patients Registry →";
+            this.btnCardPatients.Text = "Open Patients Registry";
             this.btnCardPatients.Click += new System.EventHandler(this.btnCardPatients_Click);
 
-            // Card 3: Phase 2 Roadmap & Scope
-            this.pnlCardPhase2Info.BackColor = System.Drawing.Color.FromArgb(236, 240, 241);
-            this.pnlCardPhase2Info.Location = new System.Drawing.Point(34, 305);
-            this.pnlCardPhase2Info.Size = new System.Drawing.Size(626, 120);
-            this.pnlCardPhase2Info.Controls.AddRange(new System.Windows.Forms.Control[] {
-                this.lblPhase2CardTitle,
-                this.lblPhase2CardDesc
+            // Info Card
+            this.pnlCardInfo.BackColor = System.Drawing.Color.FromArgb(236, 240, 241);
+            this.pnlCardInfo.Location = new System.Drawing.Point(34, 305);
+            this.pnlCardInfo.Size = new System.Drawing.Size(626, 120);
+            this.pnlCardInfo.Controls.AddRange(new System.Windows.Forms.Control[] {
+                this.lblCardInfoTitle,
+                this.lblCardInfoDesc
             });
 
-            this.lblPhase2CardTitle.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
-            this.lblPhase2CardTitle.ForeColor = System.Drawing.Color.FromArgb(44, 62, 80);
-            this.lblPhase2CardTitle.Location = new System.Drawing.Point(18, 14);
-            this.lblPhase2CardTitle.Size = new System.Drawing.Size(590, 22);
-            this.lblPhase2CardTitle.Text = "✅ Phase 2 GUI Design — All Screens Complete";
+            this.lblCardInfoTitle.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
+            this.lblCardInfoTitle.ForeColor = System.Drawing.Color.FromArgb(44, 62, 80);
+            this.lblCardInfoTitle.Location = new System.Drawing.Point(18, 14);
+            this.lblCardInfoTitle.Size = new System.Drawing.Size(590, 22);
+            this.lblCardInfoTitle.Text = "Clinic Management System - CS312";
 
-            this.lblPhase2CardDesc.ForeColor = System.Drawing.Color.FromArgb(39, 100, 60);
-            this.lblPhase2CardDesc.Text = "Appointments Booking, Waiting Room Queue (GDI+ Ticket Preview), and Reports & Statistics charts are fully designed and navigable. Backend networking and live DB queries activate in Phase 2 runtime.";
-
-            // ── Phase 2 Notice Placeholder Screen ─────────────────────────────
-            this.pnlPhase2Notice.BackColor = System.Drawing.Color.White;
-            this.pnlPhase2Notice.Padding = new System.Windows.Forms.Padding(40);
-            this.pnlPhase2Notice.Controls.AddRange(new System.Windows.Forms.Control[] {
-                this.lblPhase2NoticeIcon,
-                this.lblPhase2Title,
-                this.lblPhase2Desc
-            });
-
-            this.lblPhase2NoticeIcon.Font = new System.Drawing.Font("Segoe UI", 48F);
-            this.lblPhase2NoticeIcon.Location = new System.Drawing.Point(40, 60);
-            this.lblPhase2NoticeIcon.Size = new System.Drawing.Size(100, 90);
-            this.lblPhase2NoticeIcon.Text = "🔒";
-
-            this.lblPhase2Title.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.lblPhase2Title.ForeColor = System.Drawing.Color.FromArgb(44, 62, 80);
-            this.lblPhase2Title.Location = new System.Drawing.Point(40, 160);
-            this.lblPhase2Title.Size = new System.Drawing.Size(650, 40);
-            this.lblPhase2Title.Text = "Module Reserved for Phase 2";
-
-            this.lblPhase2Desc.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblPhase2Desc.ForeColor = System.Drawing.Color.FromArgb(127, 140, 141);
-            this.lblPhase2Desc.Location = new System.Drawing.Point(40, 215);
-            this.lblPhase2Desc.Size = new System.Drawing.Size(650, 120);
+            this.lblCardInfoDesc.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblCardInfoDesc.ForeColor = System.Drawing.Color.FromArgb(39, 100, 60);
+            this.lblCardInfoDesc.Location = new System.Drawing.Point(18, 44);
+            this.lblCardInfoDesc.Size = new System.Drawing.Size(590, 60);
+            this.lblCardInfoDesc.Text = "Doctors, Patients, Appointments, Waiting Queue, and Reports modules are available from the navigation menu.";
 
             // Timer
             this.timerClock.Interval = 1000;
             this.timerClock.Tick += new System.EventHandler(this.timerClock_Tick);
 
-            // ── FrmMain ───────────────────────────────────────────────────────
+            // FrmMain
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1160, 650);
@@ -386,8 +359,7 @@ namespace ClinicManagementSystem.Forms
             this.pnlDashboardHome.ResumeLayout(false);
             this.pnlCardDoctors.ResumeLayout(false);
             this.pnlCardPatients.ResumeLayout(false);
-            this.pnlCardPhase2Info.ResumeLayout(false);
-            this.pnlPhase2Notice.ResumeLayout(false);
+            this.pnlCardInfo.ResumeLayout(false);
             this.ResumeLayout(false);
         }
 
@@ -399,7 +371,7 @@ namespace ClinicManagementSystem.Forms
         private System.Windows.Forms.Button btnNavDashboard;
         private System.Windows.Forms.Button btnNavDoctors;
         private System.Windows.Forms.Button btnNavPatients;
-        private System.Windows.Forms.Label lblNavSectionPhase2;
+        private System.Windows.Forms.Label lblNavSectionModules;
         private System.Windows.Forms.Button btnNavAppointments;
         private System.Windows.Forms.Button btnNavQueue;
         private System.Windows.Forms.Button btnNavReports;
@@ -423,13 +395,9 @@ namespace ClinicManagementSystem.Forms
         private System.Windows.Forms.Label lblCardPatTitle;
         private System.Windows.Forms.Label lblCardPatDesc;
         private System.Windows.Forms.Button btnCardPatients;
-        private System.Windows.Forms.Panel pnlCardPhase2Info;
-        private System.Windows.Forms.Label lblPhase2CardTitle;
-        private System.Windows.Forms.Label lblPhase2CardDesc;
-        private System.Windows.Forms.Panel pnlPhase2Notice;
-        private System.Windows.Forms.Label lblPhase2NoticeIcon;
-        private System.Windows.Forms.Label lblPhase2Title;
-        private System.Windows.Forms.Label lblPhase2Desc;
+        private System.Windows.Forms.Panel pnlCardInfo;
+        private System.Windows.Forms.Label lblCardInfoTitle;
+        private System.Windows.Forms.Label lblCardInfoDesc;
         private System.Windows.Forms.Timer timerClock;
     }
 }

@@ -82,7 +82,7 @@ namespace ClinicManagementSystem.Forms
             this.lblLoadingStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblLoadingStatus.Visible = false;
 
-            // ── pnlTop (Search & Filter Bar) ──────────────────────────────────
+            // pnlTop (Search & Filter Bar)
             this.pnlTop.BackColor = System.Drawing.Color.White;
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Height = 65;
@@ -104,7 +104,7 @@ namespace ClinicManagementSystem.Forms
             this.lblPageTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.lblPageTitle.ForeColor = System.Drawing.Color.FromArgb(44, 62, 80);
             this.lblPageTitle.Location = new System.Drawing.Point(12, 18);
-            this.lblPageTitle.Text = "🧑 Patients Registry";
+            this.lblPageTitle.Text = "Patients Registry";
 
             // lblSearchLabel
             this.lblSearchLabel.AutoSize = true;
@@ -153,7 +153,7 @@ namespace ClinicManagementSystem.Forms
             this.btnNew.ForeColor = System.Drawing.Color.White;
             this.btnNew.Location = new System.Drawing.Point(614, 24);
             this.btnNew.Size = new System.Drawing.Size(115, 29);
-            this.btnNew.Text = "+ Add Patient";
+            this.btnNew.Text = "Add Patient";
             this.btnNew.FlatAppearance.BorderSize = 0;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
 
@@ -164,7 +164,7 @@ namespace ClinicManagementSystem.Forms
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.Location = new System.Drawing.Point(735, 24);
             this.btnRefresh.Size = new System.Drawing.Size(80, 29);
-            this.btnRefresh.Text = "↻ Refresh";
+            this.btnRefresh.Text = "Refresh";
             this.btnRefresh.FlatAppearance.BorderSize = 0;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
 
@@ -177,7 +177,7 @@ namespace ClinicManagementSystem.Forms
             this.lblCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblCount.Text = "Total Patients: 0";
 
-            // ── dgvPatients ───────────────────────────────────────────────────
+            // dgvPatients
             this.dgvPatients.AllowUserToAddRows = false;
             this.dgvPatients.AllowUserToDeleteRows = false;
             this.dgvPatients.ReadOnly = true;
@@ -240,7 +240,7 @@ namespace ClinicManagementSystem.Forms
                 this.colID, this.colName, this.colGender, this.colDOB, this.colAge, this.colPhone, this.colAddress, this.colNotes
             });
 
-            // ── pnlForm (CRUD Side Editor) ────────────────────────────────────
+            // pnlForm (CRUD Side Editor)
             this.pnlForm.BackColor = System.Drawing.Color.White;
             this.pnlForm.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlForm.Width = 330;
@@ -252,7 +252,7 @@ namespace ClinicManagementSystem.Forms
             this.lblFormTitle.ForeColor = System.Drawing.Color.FromArgb(41, 128, 185);
             this.lblFormTitle.Location = new System.Drawing.Point(18, 12);
             this.lblFormTitle.Size = new System.Drawing.Size(290, 28);
-            this.lblFormTitle.Text = "➕ Register New Patient";
+            this.lblFormTitle.Text = "Register New Patient";
 
             int y = 46;
 
@@ -334,10 +334,10 @@ namespace ClinicManagementSystem.Forms
             y += 20;
 
             this.txtNotes.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.txtNotes.Location = new System.Drawing.Point(18, y);
-            this.txtNotes.Size = new System.Drawing.Size(280, 55);
             this.txtNotes.Multiline = true;
             this.txtNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtNotes.Location = new System.Drawing.Point(18, y);
+            this.txtNotes.Size = new System.Drawing.Size(280, 55);
             y += 65;
 
             // Save Button
@@ -385,7 +385,7 @@ namespace ClinicManagementSystem.Forms
                 this.btnSave, this.btnDelete, this.btnCancel
             });
 
-            // ── FrmPatients ───────────────────────────────────────────────────
+            // FrmPatients
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 580);

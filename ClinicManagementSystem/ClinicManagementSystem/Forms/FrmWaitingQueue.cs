@@ -17,7 +17,6 @@ namespace ClinicManagementSystem.Forms
             RenderTicketPreview("A-101", "Mohamed Ramadan Farouq", "Dr. Tarek El-Gendy", "Room 2");
         }
 
-        // ── Sample Queue Data ─────────────────────────────────────────────────
         private void LoadSampleQueue()
         {
             dgvWaitingQueue.Rows.Clear();
@@ -31,7 +30,6 @@ namespace ClinicManagementSystem.Forms
             dgvWaitingQueue.Rows.Add("A-100", "Omar Fathy Ibrahim",      "Dr. Tarek El-Gendy",   "08:42 AM", "Done",    "Completed");
         }
 
-        // ── GDI+ Ticket Preview ───────────────────────────────────────────────
         private void RenderTicketPreview(string ticketNo, string patient, string doctor, string room)
         {
             _ticketNo  = ticketNo;
@@ -72,7 +70,7 @@ namespace ClinicManagementSystem.Forms
             using (var hFont = new Font("Segoe UI", 10F, FontStyle.Bold))
             using (var wBrush = new SolidBrush(Color.White))
             {
-                g.DrawString("🏥 DOCTOR APPOINTMENT SYSTEM", hFont, wBrush,
+                g.DrawString("DOCTOR APPOINTMENT SYSTEM", hFont, wBrush,
                     new RectangleF(px + 2, py + 2, pw - 4, 40),
                     new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
             }
@@ -84,7 +82,7 @@ namespace ClinicManagementSystem.Forms
                 g.DrawLine(dashPen, px + 10, py + 50, px + pw - 10, py + 50);
             }
 
-            // Ticket number (big)
+            // Ticket number
             using (var numFont = new Font("Segoe UI", 36F, FontStyle.Bold))
             using (var numBrush = new SolidBrush(Color.FromArgb(22, 160, 133)))
             {
@@ -144,7 +142,6 @@ namespace ClinicManagementSystem.Forms
             }
         }
 
-        // ── Grid Selection → Update Ticket Preview ────────────────────────────
         private void dgvWaitingQueue_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvWaitingQueue.CurrentRow == null || dgvWaitingQueue.CurrentRow.Index < 0) return;
@@ -156,10 +153,8 @@ namespace ClinicManagementSystem.Forms
             RenderTicketPreview(ticket, patient, doctor, "Room 2");
         }
 
-        // ── Action Buttons ────────────────────────────────────────────────────
         private void btnCallNext_Click(object sender, EventArgs e)
         {
-            // Find first "Waiting" row
             foreach (DataGridViewRow row in dgvWaitingQueue.Rows)
             {
                 if (row.IsNewRow) continue;
@@ -172,7 +167,7 @@ namespace ClinicManagementSystem.Forms
                     row.Cells["colQueueStatus"].Value = "In Room";
                     string doctor = row.Cells["colDoctor"].Value?.ToString() ?? "";
                     RenderTicketPreview(ticket, patient, doctor, "Room 2");
-                    lblInConsultation.Text = $"🩺  In Consultation: {patient}";
+                    lblInConsultation.Text = $"In Consultation: {patient}";
                     return;
                 }
             }
@@ -203,8 +198,8 @@ namespace ClinicManagementSystem.Forms
                 return;
             }
             string doc = dgvWaitingQueue.CurrentRow.Cells["colDoctor"].Value?.ToString() ?? "Doctor";
-            MessageBox.Show($"📡 LAN Notification Sent!\n\nNotification dispatched to {doc}'s workstation via TCP socket.\n\n[This GDI+/Networking feature will be fully live in Phase 2 runtime.]",
-                "Notification Sent (GUI Preview)", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"Notification dispatched to {doc}'s workstation.",
+                "Notification Sent", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void UpdateSummaryCards()

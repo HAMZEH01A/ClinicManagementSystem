@@ -1,7 +1,7 @@
 -- ============================================================
--- Doctor Appointment System (Project #28) - Database Schema
+-- Doctor Appointment System - Database Schema
 -- Misr University for Science & Technology (MUST)
--- Course: CS312 - Phase 1 Deliverable
+-- Course: CS312
 -- ============================================================
 
 -- Table: Users
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS Patients (
     CreatedAt           TEXT NOT NULL DEFAULT (datetime('now','localtime'))
 );
 
--- Table: Appointments (Phase 2 schema provisioned)
+-- Table: Appointments
 CREATE TABLE IF NOT EXISTS Appointments (
     AppointmentID   INTEGER PRIMARY KEY AUTOINCREMENT,
     PatientID       INTEGER NOT NULL REFERENCES Patients(PatientID),
@@ -52,18 +52,13 @@ CREATE TABLE IF NOT EXISTS Appointments (
     CreatedAt       TEXT NOT NULL DEFAULT (datetime('now','localtime'))
 );
 
--- ============================================================
 -- Seed Data: Users
--- Passwords: 'admin123' and 'password123'
--- ============================================================
 INSERT OR IGNORE INTO Users (Username, PasswordHash, Role) VALUES
 ('admin',        '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'Admin'),
 ('receptionist', 'ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f', 'Receptionist'),
 ('doctor1',      'ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f', 'Doctor');
 
--- ============================================================
--- Seed Data: Doctors (Misr University for Science & Technology - MUST)
--- ============================================================
+-- Seed Data: Doctors
 INSERT OR IGNORE INTO Doctors (FullName, Specialty, Phone, Email, WorkingDays, ConsultationFee) VALUES
 ('Dr. Tarek El-Gendy',   'Cardiology',        '01001122334', 't.elgendy@mustclinic.eg',   'Sun, Tue, Thu',      500.00),
 ('Dr. Heba Abdelaziz',   'Pediatrics',        '01112233445', 'h.abdelaziz@mustclinic.eg', 'Sat, Mon, Wed',      350.00),
@@ -71,9 +66,7 @@ INSERT OR IGNORE INTO Doctors (FullName, Specialty, Phone, Email, WorkingDays, C
 ('Dr. Mariam Farouk',    'Dermatology',       '01554433221', 'm.farouk@mustclinic.eg',    'Sat, Tue, Thu',      400.00),
 ('Dr. Hossam Badawy',    'Internal Medicine', '01066778899', 'h.badawy@mustclinic.eg',    'Daily except Fri',   300.00);
 
--- ============================================================
--- Seed Data: Patients (Egypt - Cairo, Giza, 6th of October)
--- ============================================================
+-- Seed Data: Patients
 INSERT OR IGNORE INTO Patients (FullName, Gender, DateOfBirth, Phone, Address, MedicalHistoryNotes) VALUES
 ('Ahmed Mahmoud El-Sayed', 'Male',   '1985-03-15', '01012345678', 'Al-Motamayez District, 6th of October City', 'Hypertension, regular medication'),
 ('Nourhan Tarek Ibrahim',  'Female', '1992-07-22', '01123456789', 'Sheikh Zayed City, District 4, Giza',      'No known allergies'),

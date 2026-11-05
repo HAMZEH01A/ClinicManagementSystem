@@ -27,7 +27,6 @@ namespace ClinicManagementSystem.Forms
             await LoadDoctorsAsync();
         }
 
-        // ── Task 6: Multithreading / Async Loading ────────────────────────────
         private async Task LoadDoctorsAsync()
         {
             SetLoading(true, "Loading doctors...");
@@ -101,7 +100,6 @@ namespace ClinicManagementSystem.Forms
             lblCount.Text = $"Total Doctors: {list.Count}";
         }
 
-        // ── Search & Filtering ────────────────────────────────────────────────
         private async void txtSearch_TextChanged(object sender, EventArgs e)
         {
             await TriggerSearchAsync();
@@ -144,7 +142,6 @@ namespace ClinicManagementSystem.Forms
             await LoadDoctorsAsync();
         }
 
-        // ── Grid Selection & Form Population ──────────────────────────────────
         private void dgvDoctors_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvDoctors.CurrentRow == null || dgvDoctors.CurrentRow.Index < 0)
@@ -174,7 +171,7 @@ namespace ClinicManagementSystem.Forms
             txtFee.Text = feeRaw;
 
             _isEditing = true;
-            lblFormTitle.Text = "✏ Edit Doctor Record";
+            lblFormTitle.Text = "Doctor Details";
             btnSave.Text = "Update Doctor";
             btnDelete.Enabled = true;
             errorProvider.Clear();
@@ -196,7 +193,7 @@ namespace ClinicManagementSystem.Forms
             txtEmail.Clear();
             txtWorkDays.Clear();
             txtFee.Clear();
-            lblFormTitle.Text = "➕ Add New Doctor";
+            lblFormTitle.Text = "Add New Doctor";
             btnSave.Text = "Save Doctor";
             btnDelete.Enabled = false;
             errorProvider.Clear();
@@ -204,13 +201,11 @@ namespace ClinicManagementSystem.Forms
             txtName.Focus();
         }
 
-        // ── Validation (Egyptian Mobile Formats & Requirements) ────────────────
         private bool ValidateForm()
         {
             bool isValid = true;
             errorProvider.Clear();
 
-            // Name
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
                 errorProvider.SetError(txtName, "Full Name is required.");
@@ -222,7 +217,6 @@ namespace ClinicManagementSystem.Forms
                 isValid = false;
             }
 
-            // Specialty
             string specialty = cmbSpecialty.SelectedIndex >= 0
                 ? cmbSpecialty.SelectedItem.ToString()
                 : cmbSpecialty.Text.Trim();
@@ -232,7 +226,6 @@ namespace ClinicManagementSystem.Forms
                 isValid = false;
             }
 
-            // Phone: Accepts Egyptian 11-digit numbers (010, 011, 012, 015) or standard 10-15 digits
             string phone = txtPhone.Text.Trim().Replace(" ", "").Replace("-", "");
             if (string.IsNullOrWhiteSpace(phone))
             {
@@ -245,7 +238,6 @@ namespace ClinicManagementSystem.Forms
                 isValid = false;
             }
 
-            // Email
             if (string.IsNullOrWhiteSpace(txtEmail.Text))
             {
                 errorProvider.SetError(txtEmail, "Email address is required.");
@@ -257,14 +249,12 @@ namespace ClinicManagementSystem.Forms
                 isValid = false;
             }
 
-            // Working Days
             if (string.IsNullOrWhiteSpace(txtWorkDays.Text))
             {
                 errorProvider.SetError(txtWorkDays, "Working Days are required (e.g. Sun, Tue, Thu).");
                 isValid = false;
             }
 
-            // Consultation Fee
             if (string.IsNullOrWhiteSpace(txtFee.Text))
             {
                 errorProvider.SetError(txtFee, "Consultation Fee in EGP is required.");
@@ -279,7 +269,6 @@ namespace ClinicManagementSystem.Forms
             return isValid;
         }
 
-        // ── Save (Create / Update) ─────────────────────────────────────────────
         private async void btnSave_Click(object sender, EventArgs e)
         {
             if (!ValidateForm())
@@ -290,7 +279,6 @@ namespace ClinicManagementSystem.Forms
                 ? cmbSpecialty.SelectedItem.ToString()
                 : cmbSpecialty.Text.Trim();
 
-            // Duplicate Email check
             try
             {
                 bool exists = await Task.Run(() => _dal.EmailExists(email, _editingDoctorId));
@@ -354,13 +342,12 @@ namespace ClinicManagementSystem.Forms
             }
         }
 
-        // ── Delete ─────────────────────────────────────────────────────────────
         private async void btnDelete_Click(object sender, EventArgs e)
         {
             if (_editingDoctorId == 0) return;
 
             DialogResult confirm = MessageBox.Show(
-                $"Are you sure you want to deactivate and remove '{txtName.Text}' from active doctors?",
+                $"Are you sure you want to remove '{txtName.Text}' from active doctors?",
                 "Confirm Delete",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);

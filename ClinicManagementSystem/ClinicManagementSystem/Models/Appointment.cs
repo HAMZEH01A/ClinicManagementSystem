@@ -4,11 +4,9 @@ namespace ClinicManagementSystem.Models
 {
     /// <summary>
     /// Represents an Appointment record.
-    /// The table is created in Phase 1; UI forms will be built in Phase 2.
     /// </summary>
     public class Appointment
     {
-        // ── Properties ────────────────────────────────────────────────────────
         public int      AppointmentID   { get; set; }
         public int      PatientID       { get; set; }
         public int      DoctorID        { get; set; }
@@ -18,11 +16,9 @@ namespace ClinicManagementSystem.Models
         public string   Notes           { get; set; }
         public DateTime CreatedAt       { get; set; } = DateTime.Now;
 
-        // ── Navigation (populated by DAL joins) ───────────────────────────────
         public string PatientName { get; set; }
         public string DoctorName  { get; set; }
 
-        // ── Constructors ──────────────────────────────────────────────────────
         public Appointment() { }
 
         public Appointment(int patientId, int doctorId,
