@@ -120,49 +120,20 @@ namespace ClinicManagementSystem.Forms
             OpenChildForm(new FrmPatients(), btnNavPatients);
         }
 
-        // ── Phase 2 Placeholders ──────────────────────────────────────────────
+        // ── Phase 2 Navigation ────────────────────────────────────────────────
         private void btnNavAppointments_Click(object sender, EventArgs e)
         {
-            HighlightNavButton(btnNavAppointments);
-            ShowPhase2Notice(
-                "Appointments Booking & Cancellation",
-                "This module will handle scheduling time slots, checking doctor availability, and cancelling appointments."
-            );
+            OpenChildForm(new FrmAppointments(), btnNavAppointments);
         }
 
         private void btnNavQueue_Click(object sender, EventArgs e)
         {
-            HighlightNavButton(btnNavQueue);
-            ShowPhase2Notice(
-                "Waiting Room Queue Tracker",
-                "This module will manage live patient queues in the waiting room and track consultation states."
-            );
+            OpenChildForm(new FrmWaitingQueue(), btnNavQueue);
         }
 
         private void btnNavReports_Click(object sender, EventArgs e)
         {
-            HighlightNavButton(btnNavReports);
-            ShowPhase2Notice(
-                "Reports & Statistical Charts",
-                "This module will generate monthly/annual appointment analytics, patient demographics, and financial summaries."
-            );
-        }
-
-        private void ShowPhase2Notice(string featureName, string description)
-        {
-            if (_activeChildForm != null)
-            {
-                _activeChildForm.Close();
-                _activeChildForm.Dispose();
-                _activeChildForm = null;
-            }
-
-            pnlMainContainer.Controls.Clear();
-            pnlPhase2Notice.Dock = DockStyle.Fill;
-            lblPhase2Title.Text = $"🔒 {featureName}";
-            lblPhase2Desc.Text = description + "\n\n⚠️ As per the specification, this feature is strictly OUT OF SCOPE for Phase 1 and will be built in Phase 2.";
-            pnlMainContainer.Controls.Add(pnlPhase2Notice);
-            pnlPhase2Notice.BringToFront();
+            OpenChildForm(new FrmReports(), btnNavReports);
         }
 
         // ── Dashboard Quick Shortcuts ─────────────────────────────────────────

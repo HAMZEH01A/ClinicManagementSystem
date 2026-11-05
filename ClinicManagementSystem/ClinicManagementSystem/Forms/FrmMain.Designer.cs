@@ -146,18 +146,18 @@ namespace ClinicManagementSystem.Forms
             this.lblNavSectionPhase2.ForeColor = System.Drawing.Color.FromArgb(149, 165, 166);
             this.lblNavSectionPhase2.Location = new System.Drawing.Point(18, btnY);
             this.lblNavSectionPhase2.Size = new System.Drawing.Size(194, 16);
-            this.lblNavSectionPhase2.Text = "PHASE 2 (NEXT 50%)";
+            this.lblNavSectionPhase2.Text = "PHASE 2 - GUI DESIGN";
             btnY += 20;
 
-            setupNav(this.btnNavAppointments, "📅  Appointments  [P2]", btnY, true);
+            setupNav(this.btnNavAppointments, "📅  Appointments", btnY, false);
             this.btnNavAppointments.Click += new System.EventHandler(this.btnNavAppointments_Click);
             btnY += 44;
 
-            setupNav(this.btnNavQueue, "⏱  Waiting Queue  [P2]", btnY, true);
+            setupNav(this.btnNavQueue, "⏱  Waiting Queue", btnY, false);
             this.btnNavQueue.Click += new System.EventHandler(this.btnNavQueue_Click);
             btnY += 44;
 
-            setupNav(this.btnNavReports, "📈  Reports & Stats  [P2]", btnY, true);
+            setupNav(this.btnNavReports, "📈  Reports & Stats", btnY, false);
             this.btnNavReports.Click += new System.EventHandler(this.btnNavReports_Click);
 
             // Logout Button
@@ -239,7 +239,7 @@ namespace ClinicManagementSystem.Forms
             this.lblDashSubGreeting.ForeColor = System.Drawing.Color.FromArgb(127, 140, 141);
             this.lblDashSubGreeting.Location = new System.Drawing.Point(32, 63);
             this.lblDashSubGreeting.Size = new System.Drawing.Size(700, 24);
-            this.lblDashSubGreeting.Text = "Phase 1: Core Foundation, Portable Database, Authentication, Doctors, and Patients modules are ready.";
+            this.lblDashSubGreeting.Text = "All GUI screens are fully designed: Doctors, Patients, Appointments, Waiting Queue, and Reports modules are ready.";
 
             // Card 1: Doctors Shortcut
             this.pnlCardDoctors.BackColor = System.Drawing.Color.White;
@@ -330,13 +330,10 @@ namespace ClinicManagementSystem.Forms
             this.lblPhase2CardTitle.ForeColor = System.Drawing.Color.FromArgb(44, 62, 80);
             this.lblPhase2CardTitle.Location = new System.Drawing.Point(18, 14);
             this.lblPhase2CardTitle.Size = new System.Drawing.Size(590, 22);
-            this.lblPhase2CardTitle.Text = "📌 Phase 2 Scope Boundary (The Other 50%)";
+            this.lblPhase2CardTitle.Text = "✅ Phase 2 GUI Design — All Screens Complete";
 
-            this.lblPhase2CardDesc.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblPhase2CardDesc.ForeColor = System.Drawing.Color.FromArgb(100, 110, 120);
-            this.lblPhase2CardDesc.Location = new System.Drawing.Point(18, 40);
-            this.lblPhase2CardDesc.Size = new System.Drawing.Size(590, 68);
-            this.lblPhase2CardDesc.Text = "To maintain an exact 50% division of work, Appointments Booking, Waiting Room Queue Tracker, GDI+ Graphics, Statistical Charts, and Client-Server Socket Notifications are designated for Phase 2.\nThe Database table schema for Appointments is already provisioned!";
+            this.lblPhase2CardDesc.ForeColor = System.Drawing.Color.FromArgb(39, 100, 60);
+            this.lblPhase2CardDesc.Text = "Appointments Booking, Waiting Room Queue (GDI+ Ticket Preview), and Reports & Statistics charts are fully designed and navigable. Backend networking and live DB queries activate in Phase 2 runtime.";
 
             // ── Phase 2 Notice Placeholder Screen ─────────────────────────────
             this.pnlPhase2Notice.BackColor = System.Drawing.Color.White;
